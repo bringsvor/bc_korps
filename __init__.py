@@ -1,2 +1,2 @@
 import partner
-import report
+# Must rewrite the report to qweb import report
