@@ -17,7 +17,6 @@
 			    </field>
                 <field name="associate_member" position="after">
                     <field name="join_date" />
-                    <field name="discount" />
                     <field name="instrument" />
                 </field>
 			</field>
