@@ -3,7 +3,8 @@
 
 import csv,re
 
-medlemsfil = 'medlemmer_20032014.csv'
+#medlemsfil = 'medlemmer_20032014.csv'
+medlemsfil = 'Medlemsliste 08.03.2015.csv'
 
 def parse():
 	f = open(medlemsfil)
@@ -13,6 +14,7 @@ def parse():
 	members = None
 	category = None
 	for row in r:
+		print "ROW", row
 		if row[0] == 'Hjelpekorps':
 			headings.append('category_id')
 			return headings, members
@@ -23,11 +25,12 @@ def parse():
 			if category != None:
 				row.append(category)
 			members.append(row)
-		if index == 8:
+		if index == 5:
 			headings = row
 			members = []
 
 		index += 1
+	return headings,members
 
 postnr_re = re.compile('(\d{4}) ')
 
@@ -77,6 +80,7 @@ def get_members(headings, members):
 		oerp['mobile'] = tlf[0]
 		if len(tlf)>1:
 			oerp['mobile2'] = tlf[1]
+		print "D_CATEG", d['category_id']
 		oerp['category_id'] = d['category_id']
 
 		# Startår
@@ -92,7 +96,7 @@ def get_members(headings, members):
 
 if __name__=='__main__':
 	headings, members = parse()
-
+	print "HE", headings
 	#
 	for mem in get_members(headings, members):
 		print mem
