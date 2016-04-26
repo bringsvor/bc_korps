@@ -4,7 +4,8 @@
 import csv,re
 
 #medlemsfil = 'medlemmer_20032014.csv'
-medlemsfil = 'Medlemsliste 08.03.2015.csv'
+#medlemsfil = 'Medlemsliste 08.03.2015.csv'
+medlemsfil = 'Medlemsliste 03.09.2015.csv'
 
 def parse():
 	f = open(medlemsfil)
